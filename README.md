@@ -170,10 +170,10 @@ python main.py
 TARGET_DATE="20250904" python main.py
 
 # 시나리오 2: 특정 이메일 주소의 2025년 9월 4일 메시지
-SENDER_NAME="dohan0680@mining5000.co.kr" TARGET_DATE="20250904" python main.py
+SENDER_NAME="sender@naver.net" TARGET_DATE="20250904" python main.py
 
 # 시나리오 3: 가장 최신 메시지 (날짜 설정 없음)
-SENDER_NAME="dohan0680@mining5000.co.kr" python main.py
+SENDER_NAME="sender@naver.net" python main.py
 ```
 
 ### 환경변수 설정
