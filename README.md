@@ -59,10 +59,64 @@ playwright install chromium
 
 ### 2. Gmail API 설정
 
-1. [Google Cloud Console](https://console.cloud.google.com/)에서 프로젝트 생성
-2. Gmail API 활성화
-3. OAuth 2.0 클라이언트 ID 생성
-4. `credentials.json` 파일을 프로젝트 루트에 저장
+Gmail API를 사용하기 위해서는 Google Cloud 프로젝트 설정과 OAuth 2.0 인증이 필요합니다.
+
+#### 사전 요구사항
+- Python 3.10.7 이상
+- Gmail이 활성화된 Google 계정
+- Google Cloud 프로젝트
+
+#### 단계별 설정 방법
+
+**① Google Cloud 프로젝트 생성 및 Gmail API 활성화**
+1. [Google Cloud Console](https://console.cloud.google.com/)에 접속
+2. 새 프로젝트를 생성하거나 기존 프로젝트 선택
+3. 검색창에서 "Gmail API"를 검색하여 활성화
+
+**② OAuth 동의 화면 구성**
+1. 좌측 메뉴에서 "Google Auth platform" > "브랜딩" 이동
+2. 앱 이름과 지원 이메일 설정
+3. 사용자 유형을 "내부" 또는 "외부" 선택 (개인용은 "외부" 권장)
+4. 필요한 정보를 입력하여 동의 화면 구성 완료
+
+**③ OAuth 2.0 클라이언트 ID 생성**
+1. 좌측 메뉴에서 "Google Auth platform" > "사용자 인증 정보" 이동
+2. "+ 사용자 인증 정보 만들기" → "OAuth 클라이언트 ID" 선택
+3. 애플리케이션 유형을 "데스크톱 애플리케이션" 선택
+4. 이름을 입력하고 "만들기" 클릭
+5. **중요**: 생성된 클라이언트의 JSON 파일을 다운로드
+6. 다운로드한 파일을 프로젝트 루트 디렉토리에 `credentials.json`으로 저장
+
+**④ 첫 실행 및 토큰 생성**
+- 처음 실행 시 브라우저에서 Google 로그인 및 권한 승인 필요
+- 승인 완료 후 `token.json` 파일이 자동으로 생성됨
+- 이후 실행부터는 자동으로 인증됨
+
+```bash
+# 첫 실행 시 브라우저에서 인증 진행
+python main.py
+# → Google 로그인 페이지가 열리고 권한 승인 후 token.json 생성
+```
+
+#### 파일 구조
+```
+GmailCrawler/
+├── credentials.json    # OAuth 2.0 클라이언트 정보 (직접 다운로드)
+├── token.json         # 인증 토큰 (첫 실행 시 자동 생성)
+└── ...
+```
+
+#### 권한 범위
+이 도구는 Gmail 읽기 전용 권한만 사용합니다:
+- `https://www.googleapis.com/auth/gmail.readonly`
+
+#### 보안 주의사항
+⚠️ **중요**: 다음 파일들은 민감한 정보를 포함하므로 절대 공유하지 마세요:
+- `credentials.json`: OAuth 2.0 클라이언트 정보
+- `token.json`: 인증 토큰 정보
+- `.env`: API 키 및 설정 정보
+
+이 파일들은 `.gitignore`에 포함되어 버전 관리에서 자동 제외됩니다.
 
 ### 3. Gemini API 설정
 
