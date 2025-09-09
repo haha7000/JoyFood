@@ -180,7 +180,7 @@ SENDER_NAME="dohan0680@mining5000.co.kr" python main.py
 
 ```bash
 # 발신자 이름 또는 이메일 주소 설정
-export SENDER_NAME="이도한"  # 또는 "sender@example.com"
+export SENDER_NAME="홍길동"  # 또는 "sender@example.com"
 
 # 특정 메시지 ID로 처리 (SENDER_NAME보다 우선)
 export MESSAGE_ID="message_id_here"
@@ -227,7 +227,7 @@ else:
 
 | 환경변수 | 기본값 | 설명 |
 |---------|--------|------|
-| `SENDER_NAME` | "이도한" | 검색할 발신자 이름 또는 이메일 주소 |
+| `SENDER_NAME` | "홍길동" | 검색할 발신자 이름 또는 이메일 주소 |
 | `MESSAGE_ID` | None | 특정 메시지 ID (설정 시 우선 사용) |
 | `TARGET_DATE` | None | 특정 날짜의 메시지 처리 (YYYYMMDD 형식) |
 | `MAX_RESULTS` | 10 | 최대 검색 결과 수 |
