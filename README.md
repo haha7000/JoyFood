@@ -263,7 +263,6 @@ pytest --cov=. --cov-report=html
 
 ### 디렉토리 구조
 - **`output/`**: 최종 결과 파일들이 저장되는 디렉토리
-- **`temp/`**: 처리 중 생성되는 임시 파일들이 저장되는 디렉토리 (자동 정리)
 
 ## 🔍 로깅
 
@@ -276,53 +275,6 @@ pytest --cov=. --cov-report=html
 
 로그는 콘솔과 파일(설정된 경우)에 동시에 출력됩니다.
 
-## 🛠️ 개발
-
-### 코드 구조
-
-- **클래스 기반 설계**: 각 기능을 독립적인 클래스로 구현
-- **의존성 주입**: 설정과 로거를 주입받아 사용
-- **예외 처리**: 체계적인 예외 처리 및 로깅
-- **타입 힌트**: 모든 함수와 클래스에 타입 힌트 적용
-
-### 새로운 기능 추가
-
-1. 새로운 모듈 생성
-2. `LoggerMixin` 상속으로 로깅 기능 추가
-3. 적절한 예외 클래스 사용
-4. 테스트 코드 작성
-
-## 🐛 문제 해결
-
-### 일반적인 문제
-
-1. **Gmail API 인증 실패**
-   - `credentials.json` 파일이 올바른 위치에 있는지 확인
-   - OAuth 2.0 클라이언트 ID가 올바르게 설정되었는지 확인
-
-2. **Gemini API 오류**
-   - API 키가 올바른지 확인
-   - API 할당량이 남아있는지 확인
-
-3. **Playwright 오류**
-   - `playwright install chromium` 명령어 실행
-   - 브라우저가 올바르게 설치되었는지 확인
-
-4. **메모리 부족**
-   - `MAX_RESULTS` 값을 줄여보세요
-   - `DEVICE_SCALE_FACTOR` 값을 낮춰보세요
-
-## 📄 라이선스
-
-이 프로젝트는 MIT 라이선스 하에 배포됩니다.
-
-## 🤝 기여
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## 📞 지원
 
